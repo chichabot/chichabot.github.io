@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Noto+Sans+JP&family=Pixelify+Sans&display=swap');
+
+:root{
+    --white: #FFFFFF;
+    --turqoise: #81F4E1;
+    --sky-blue: #56CBF9;
+    --pink: #FF729F;
+    --medj-violet: #D3C4D1;
+    --gray: #637081;
+    --kanit: 'Kanit', sans-serif;
+    --noto-sans: 'Noto Sans JP', sans-serif;
+    --pixel: 'Pixelify Sans', sans-serif;
+}
+
+body{
+    background-color: var(--medj-violet);
+
+}
+h1{
+    font-family: var(--pixel);
+    color: var(--gray);
+}
+
+img{
+    width: 55dvw;
+}
+
+.ins{
+    font-family: var(--noto-sans);
+    color: var(--gray);
+    font-size: 4vw; 
+}
+
+p i{
+    font-size: 10vw;
+    color: var(--turqoise);
+}
+
+button{
+    font-family: var(--kanit); 
+    border-radius: 45px;
+    width: 25vw;
+    background: none;
+    border: 3px solid var(--white);
+}
