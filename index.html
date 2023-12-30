@@ -22,13 +22,12 @@
         <button class="" id="generateButton" data-bs-toggle="modal" data-bs-target="#responseModal">button</button>
     </div>
 
-    <!-- Bootstrap Modal -->
-    <div class="modal fade" id="responseModal" aria-labelledby="responseModalLabel" aria-hidden="true">
+    <div class="modal fade" id="responseModal" aria-labelledby="responseModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body text-center">
                     <img src="assets/img/mybot.gif" alt="" style="width: 20vw;">
-                    <p id="responseMessage" style="font-family: var(--pixel);"></p>
+                    <div id="responseMessage" style="font-family: var(--pixel);"></div>
                 </div>
             </div>
         </div>
@@ -36,19 +35,33 @@
 
     <script>
         document.getElementById('generateButton').addEventListener('click', function() {
-            // Send a request to PHP to get a response
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Update the modal content with the response
-                    document.getElementById('responseMessage').innerHTML = xhr.responseText;
-                    // Show the Bootstrap modal
-                    var modal = new bootstrap.Modal(document.getElementById('responseModal'));
-                    modal.show();
-                }
-            };
-            xhr.open('GET', 'response.php', true);
-            xhr.send();
+        
+            var responses = [
+                "hi, ganda mo 105% !",
+                "bias kita sa buong mundo",
+                "tinapay mwehehe",
+                "i miss you kaya",
+                "hatdog sa champorado",
+                "sana makiss kita",
+                "sana mag picture tayo, mga hundred million million dollar dollar",
+                "cheescake k",
+                "ganda bangs mo beh",
+                "wla na ako mailagay"
+            ];
+
+            
+            var randomIndex = Math.floor(Math.random() * responses.length);
+
+            
+            document.getElementById('responseMessage').innerHTML = responses[randomIndex];
+
+            
+            var modal = new bootstrap.Modal(document.getElementById('responseModal'));
+            modal.show();
+
+            setTimeout(function() {
+                modal.hide();
+            }, 5000);
         });
     </script>
     <script src="assets/js/bootstrap.min.js"></script>
