@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="max-width=425px, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
         <h1>hello, ako si paopan !</h1>
         <img src="assets/img/paopan.gif" alt="">
         <p class="ins mt-5">click mo lang 'tong button para hapi ka lang</p>
-        <button class="" id="generateButton" data-bs-toggle="modal" data-bs-target="#responseModal">button</button>
+        <button class="btn btn-outline-primary" id="generateButton" data-bs-toggle="modal" data-bs-target="#responseModal">button</button>
     </div>
 
     <div class="modal fade" id="responseModal" aria-labelledby="responseModalLabel" aria-hidden="true" data-bs-backdrop="static">
@@ -28,6 +28,7 @@
                 <div class="modal-body text-center">
                     <img src="assets/img/mybot.gif" alt="" style="width: 20vw;">
                     <div id="responseMessage" style="font-family: var(--pixel);"></div>
+                    <button type="button" class="btn btn-outline-danger mt-3" id="closeModalButton" data-bs-dismiss="modal">omkei</button>
                 </div>
             </div>
         </div>
@@ -49,19 +50,21 @@
                 "wla na ako mailagay"
             ];
 
-            
             var randomIndex = Math.floor(Math.random() * responses.length);
-
-            
             document.getElementById('responseMessage').innerHTML = responses[randomIndex];
 
-            
             var modal = new bootstrap.Modal(document.getElementById('responseModal'));
             modal.show();
 
             setTimeout(function() {
                 modal.hide();
             }, 5000);
+        });
+
+        // Add event listener to reset state when the modal is hidden
+        document.getElementById('responseModal').addEventListener('hidden.bs.modal', function() {
+            // Add any additional state reset logic here
+            document.getElementById('generateButton').disabled = false; // Enable the button
         });
     </script>
     <script src="assets/js/bootstrap.min.js"></script>
