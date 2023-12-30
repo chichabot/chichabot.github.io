@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Noto+Sans+JP&family=Pixelify+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="icon" href="assets/img/cat.gif">
+    <audio id="responseSound" src="assets/sound/bbuing_bbuing.mp3" preload="auto"></audio>
     <title>ChichaBot</title>
 </head>
 
@@ -52,6 +53,10 @@
 
             var randomIndex = Math.floor(Math.random() * responses.length);
             document.getElementById('responseMessage').innerHTML = responses[randomIndex];
+
+            var responseSound = document.getElementById('responseSound');
+            responseSound.currentTime = 0;
+            responseSound.play();
 
             var modal = new bootstrap.Modal(document.getElementById('responseModal'));
             modal.show();
